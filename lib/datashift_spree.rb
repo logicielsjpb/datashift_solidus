@@ -24,7 +24,7 @@
 #++
 
 # Details:: Spree Product and Image Loader from .xls or CSV
-# 
+#
 # To pull DataShift commands into your main Spree application :
 #
 #     require 'datashift_spree'
@@ -33,14 +33,14 @@
 #
 require 'rbconfig'
 require 'datashift'
-require 'spree'
+require 'solidus'
 
 $:.unshift '.' unless $:.include?('.')
 
 module DataShift
 
   module SpreeEcom
-    
+
     def self.gem_version
       unless(@gem_version)
         if(File.exists?(File.join(root_path, 'VERSION') ))
@@ -64,9 +64,9 @@ module DataShift
     def self.library_path
       File.expand_path("#{File.dirname(__FILE__)}/../lib")
     end
-  
+
     def self.require_libraries
-    
+
       loader_libs = %w{ lib  }
 
       # Base search paths - these will be searched recursively
@@ -84,12 +84,12 @@ module DataShift
           end
         end
       end
-    
+
 
     end
 
     def self.require_datashift_spree
-    
+
       require_libs = %w{ loaders helpers }
       require_libs.each do |base|
         Dir[File.join(library_path, base, '**/*.rb')].each do |rb|
@@ -100,7 +100,7 @@ module DataShift
       end
 
     end
-  
+
     # Load all the datashift rake tasks and make them available throughout app
     def self.load_tasks
       # Long parameter lists so ensure rake -T produces nice wide output
@@ -109,12 +109,12 @@ module DataShift
       Dir["#{base}/*.rake"].sort.each { |ext| load ext }
     end
 
-  
+
     # Load all the datashift Thor commands and make them available throughout app
 
     def self.load_commands()
       base = File.join(library_path, 'thor', '**')
-    
+
       Dir["#{base}/*.thor"].each do |f|
         next unless File.file?(f)
         Thor::Util.load_thorfile(f)

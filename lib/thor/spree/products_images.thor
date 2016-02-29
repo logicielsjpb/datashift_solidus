@@ -12,14 +12,14 @@
 
 # Note, not DataShift, case sensitive, create namespace for command line : datashift
 
-require 'spree'
+require 'solidus'
 
 require 'datashift_spree'
 
 require 'spree_ecom'
 
-module DatashiftSpree 
-  
+module DatashiftSpree
+
   class Load < Thor
 
     include DataShift::Logging

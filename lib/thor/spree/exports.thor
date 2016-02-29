@@ -7,8 +7,8 @@
 require 'datashift_spree'
 
 
-module DatashiftSpree 
-  
+module DatashiftSpree
+
   class Exports < Thor
 
     include DataShift::Logging

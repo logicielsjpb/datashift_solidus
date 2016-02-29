@@ -1,4 +1,9 @@
-##  DataShift Spree
+## DataShift Solidus
+
+This is a fork of DataShift Spree in order to get it working with Solidus
+
+###  DataShift Spree
+
 
 Specific loaders and command line tasks for Spree E-Commerce.
 
@@ -8,7 +13,7 @@ Wiki here : **https://github.com/matt-paul/datashift_solidus/wiki**
 
 The loaders have been tested with 0.11, 1.3 and 2.2
 
-The specs have been designed to use an internal Spree sandbox so it's 
+The specs have been designed to use an internal Spree sandbox so it's
 easy to change the Spree version and re-run the specs. See Testing section below.
 
 ### Features
@@ -18,7 +23,7 @@ all associations and setting configurable defaults or over rides.
 
 High level thor command line tasks for import/export provided.
 
-Specific loaders and command line tasks provided out the box for **Spree E-Commerce**, 
+Specific loaders and command line tasks provided out the box for **Spree E-Commerce**,
 enabling import/export of Product data including creating Variants with different
  count on hands and all associations including Properties/Taxons/OptionTypes and Images.
 
@@ -35,7 +40,7 @@ Add to bundle :
     gem 'datashift'
     gem 'datashift_solidus'
 
-Create a high level .thor file - e.g mysite.thor - in your applications root directory 
+Create a high level .thor file - e.g mysite.thor - in your applications root directory
 
 
 ```ruby
@@ -82,14 +87,14 @@ Options:
 
 There are a number of specs to test this gem, located in the spec subdirectory.
 
-To properly test this gem we require an actual Spree store, so when the specs are first run 
+To properly test this gem we require an actual Spree store, so when the specs are first run
 we create a sandbox Rails app, containing a Spree store, whose version we can control in spec/Gemfile
 
 It's therefor recommended that all testing be done in spec dir itself, so first cd into spec
 
 Define the version of Spree to test against, in the Gemfile, then run
 
-```ruby 
+```ruby
     cd spec
     bundle install
 ```
@@ -97,7 +102,7 @@ Define the version of Spree to test against, in the Gemfile, then run
 If changing Spree versions, it's best to force a rebuild of a clean sandbox, and often removing Gemfile.lock will resolve any funny version issues,
  so  run:
 
-```ruby 
+```ruby
     cd spec
     rm -rf sandbox
     rm -rf Gemfile.lock
@@ -105,13 +110,13 @@ If changing Spree versions, it's best to force a rebuild of a clean sandbox, and
 
 Change Gemfile versions and run
 
-```ruby 
+```ruby
     bundle install
 ```
- 
+
 The next time you run rspec the sandbox will be regenerated using the latest versions of Rails/Spree specified in your Gemfile
 
-```ruby 
+```ruby
     bundle exec rspec -c .
 ```
 

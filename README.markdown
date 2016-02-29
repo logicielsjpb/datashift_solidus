@@ -2,7 +2,7 @@
 
 Specific loaders and command line tasks for Spree E-Commerce.
 
-Wiki here : **https://github.com/autotelik/datashift_spree/wiki**
+Wiki here : **https://github.com/matt-paul/datashift_solidus/wiki**
 
 ### Versions
 
@@ -33,14 +33,14 @@ Requires datashift.
 Add to bundle :
 
     gem 'datashift'
-    gem 'datashift_spree'
+    gem 'datashift_solidus'
 
 Create a high level .thor file - e.g mysite.thor - in your applications root directory 
 
 
 ```ruby
 require 'datashift'
-require 'datashift_spree'
+require 'datashift_solidus'
 
 DataShift::load_commands
 DataShift::SpreeEcom::load_commands
@@ -50,21 +50,21 @@ To check the available tasks run thor list with a search term, for example
 
 ```ruby
     bundle exec thor list datashift
-    bundle exec thor list datashift_spree
+    bundle exec thor list datashift_solidus
 ```
 
 New functionality and options under active development so check latest
 usage information via ```thor help <command>``` ... for example
 
 ```ruby
-    bundle exec thor help datashift_spree:load:products
+    bundle exec thor help datashift_solidus:load:products
 ```
 
 Will print out usage and latest options like ...
 
 ```ruby
 Usage:
-  thor datashift_spree:load:products -i, --input=INPUT
+  thor datashift_solidus:load:products -i, --input=INPUT
 
 Options:
   -i, --input=INPUT                            # The import file (.xls or .csv)

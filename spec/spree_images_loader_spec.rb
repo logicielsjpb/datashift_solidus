@@ -4,16 +4,16 @@
 #
 # License::   MIT - Free, OpenSource
 #
-# Details::   Specification for Spree Image loading spect of datashift_spree gem.
+# Details::   Specification for Spree Image loading spect of datashift_solidus gem.
 #
 #  NOTES
 #             Some of these test will fail if not run from within spec directory since the CSV/Excel files
 #             contain static paths to the image fixtures. You'll see an error like
-#             
+#
 #                 Cannot process Image : Invalid Path fixtures/images/DEMO_001_ror_bag.jpeg
-#             
+#
 #             These are marked with :passes_only_in_spec_dir => true do
-#             
+#
 require File.join(File.expand_path(File.dirname(__FILE__) ), "spec_helper")
 
 require 'product_loader'
@@ -39,16 +39,16 @@ describe 'SpreeImageLoading' do
   end
 
   def report_errors_tests( x )
-      
+
     options = {:mandatory => ['sku', 'name', 'price'] }
 
     product_loader.perform_load( ifixture_file(x), options )
 
     product_loader.reporter.processed_object_count.should == 3
-    
+
     product_loader.loaded_count.should == 0
     product_loader.failed_count.should == 3
-      
+
     @Product_klass.count.should == 0
     @Image_klass.count.should == 0
 
@@ -57,7 +57,7 @@ describe 'SpreeImageLoading' do
     p.should be_nil
 
   end
-  
+
   it "should create Image from path in Product loading column from CSV" do
 
     options = {:mandatory => ['sku', 'name', 'price'] }
@@ -66,7 +66,7 @@ describe 'SpreeImageLoading' do
 
     product_loader.loaded_count.should == 3
     product_loader.failed_count.should == 0
-    
+
     @Image_klass.count.should == 3
 
     p = @Product_klass.find_by_name("Demo Product for AR Loader")
@@ -83,19 +83,19 @@ describe 'SpreeImageLoading' do
   it "should create Image from path in Product loading column from .xls"  do
 
     options = {:mandatory => ['sku', 'name', 'price'] }
-        
+
     product_loader.perform_load( ifixture_file('SpreeProductsWithImages.xls'), options )
 
     product_loader.loaded_count.should == 3
     product_loader.failed_count.should == 0
-    
+
     p = @Product_klass.find_by_name("Demo Product for AR Loader")
 
     p.name.should == "Demo Product for AR Loader"
-    
+
     expect(p.images.size).to eq 1
     expect(p.master.images.size).to eq 1
-    
+
     @Product_klass.all.each {|p| expect(p.images.size).to eq 1 }
 
     @Image_klass.count.should == 3
@@ -110,7 +110,7 @@ describe 'SpreeImageLoading' do
     product_loader.reporter.processed_object_count.should == 3
     product_loader.loaded_count.should == 3
     product_loader.failed_count.should == 0
-    
+
     p = @Product_klass.find_by_name("Demo Product for AR Loader")
 
     p.name.should == "Demo Product for AR Loader"
@@ -120,10 +120,10 @@ describe 'SpreeImageLoading' do
 
     @Image_klass.count.should == 3
   end
-  
-  
 
-  
+
+
+
   it "should assign Images to preloaded Products by SKU via Excel"  do
 
     DataShift::ModelMethodsManager.find_methods( @Image_klass )
@@ -135,15 +135,15 @@ describe 'SpreeImageLoading' do
     @Image_klass.count.should == 0
 
     ["DEMO_001", "DEMO_002", "DEMO_003"].each do |sku|
-      
+
       v = Spree::Variant.where( :sku => sku).first
-      
+
       expect(v).to be_a Spree::Variant
-      
-    
+
+
       expect(v.images.size).to eq 0
     end
-    
+
     loader = DataShift::SpreeEcom::ImageLoader.new(nil, {})
 
     loader.perform_load( ifixture_file('SpreeImagesBySku.xls'), {:image_path_prefix => "#{File.expand_path(File.dirname(__FILE__))}/"} )
@@ -209,7 +209,7 @@ describe 'SpreeImageLoading' do
     expect(p.images.size).to eq 2
 
     puts p.images.inspect
-    
+
     #p.images.where( :attachment_file_name => "DEMO_001_ror_bag.jpeg").first1.alt.should == 'some random alt text for 002'
     #p.images.where( :attachment_file_name => ???).first.alt.should == '323X428 ror bag'
 

@@ -14,7 +14,7 @@
 
 require 'solidus'
 
-require 'datashift_spree'
+require 'datashift_solidus'
 
 require 'spree_ecom'
 

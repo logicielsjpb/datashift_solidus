@@ -4,7 +4,7 @@
 # License::   MIT. Free, Open Source.
 #
 
-require 'datashift_spree'
+require 'datashift_solidus'
 
 
 module DatashiftSpree

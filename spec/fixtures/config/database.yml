@@ -23,6 +23,6 @@ test_file:
 
 test_spree_standalone:
   adapter: <%= adapter %>
-  database: <%= File.join($DataShiftFixturePath, 'datashift_Spree_db.sqlite') %>
+  database: <%= File.join($DataShiftFixturePath, 'datashift_Solidus_db.sqlite') %>
   encoding: utf8
   host: localhost

@@ -5,7 +5,7 @@
 #
 # Note, not DataShift, case sensitive, create namespace for command line : datashift
 
-require 'datashift_spree'
+require 'datashift_solidus'
 
 require 'spree_ecom'
 

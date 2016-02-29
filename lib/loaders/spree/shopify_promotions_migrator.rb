@@ -18,7 +18,7 @@ module DataShift
     class ShopifyPromotionsMigrator < SpreeBaseLoader
 
       # Options
-      #  
+      #
       #  :reload           : Force load of the method dictionary for object_class even if already loaded
       #  :verbose          : Verbose logging and to STDOUT
       #

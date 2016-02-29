@@ -27,7 +27,7 @@
 #
 # To pull DataShift commands into your main Spree application :
 #
-#     require 'datashift_spree'
+#     require 'datashift_solidus'
 #
 #     DataShift::SpreeEcom::load_commands
 #
@@ -54,7 +54,7 @@ module DataShift
     end
 
     def self.gem_name
-      "datashift_spree"
+      "datashift_solidus"
     end
 
     def self.root_path
@@ -88,7 +88,7 @@ module DataShift
 
     end
 
-    def self.require_datashift_spree
+    def self.require_datashift_solidus
 
       require_libs = %w{ loaders helpers }
       require_libs.each do |base|
@@ -124,7 +124,7 @@ module DataShift
 end
 
 DataShift::SpreeEcom::require_libraries
-DataShift::SpreeEcom::require_datashift_spree
+DataShift::SpreeEcom::require_datashift_solidus
 
-require 'datashift_spree/exceptions'
+require 'datashift_solidus/exceptions'
 

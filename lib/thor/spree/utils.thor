@@ -9,7 +9,7 @@
 #
 # Note, not DataShift, case sensitive, create namespace for command line : datashift
 
-module DatashiftSpree
+module DatashiftSolidus
         
   class Utils < Thor     
   

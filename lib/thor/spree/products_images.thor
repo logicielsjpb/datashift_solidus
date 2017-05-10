@@ -18,7 +18,7 @@ require 'datashift_solidus'
 
 require 'spree_ecom'
 
-module DatashiftSpree
+module DatashiftSolidus
 
   class Load < Thor
 

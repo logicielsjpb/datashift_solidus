@@ -12,7 +12,7 @@
 require 'thor'
 
 
-module DatashiftSpree
+module DatashiftSolidus
   
   module DataBank
     

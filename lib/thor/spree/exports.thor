@@ -7,7 +7,7 @@
 require 'datashift_solidus'
 
 
-module DatashiftSpree
+module DatashiftSolidus
 
   class Exports < Thor
 

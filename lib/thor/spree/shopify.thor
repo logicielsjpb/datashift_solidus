@@ -9,7 +9,7 @@ require 'datashift_solidus'
 
 require 'spree_ecom'
 
-module DatashiftSpree
+module DatashiftSolidus
 
   class Shopify < Thor
 
@@ -144,7 +144,10 @@ module DatashiftSpree
 
     end
 
+    # TODO - Complete products import function
+    desc "products", "WIP - Implement Shopify product imports"
 
-
+    def products()
+    end
   end
 end
